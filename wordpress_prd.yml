@@ -1,0 +1,14 @@
+---
+- hosts: mysql
+  remote_user: fabio
+  become: yes
+  roles:
+  - mysql
+  
+- hosts: wordpress
+  remote_user: fabio
+  become: yes
+  roles:
+  - server
+  - php
+  - wordpress

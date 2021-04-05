@@ -1,0 +1,10 @@
+---
+# defaults file for mysql
+# Define nome do banco de dados
+wp_mysql_db: wordpress
+# Define o nome do usuario do banco
+wp_mysql_user: fabio
+# Define a senha do usuario criado
+wp_mysql_password: 123qwe.
+# Define o IP do banco de dados Mysql
+wp_mysql_host: 192.168.79.142

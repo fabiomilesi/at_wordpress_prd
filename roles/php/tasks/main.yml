@@ -1,0 +1,9 @@
+#Playbook destinado a instalação das extensões do PHP
+- name: Atualiza o cache apt de nosso servidor
+  apt: update_cache=yes cache_valid_time=3600
+  become: yes
+
+- name: Extensões PHP
+  apt:
+    name: ['php-xml','php-mbstring','php-xml','php-cli','php-fpm','php-json','php-common','php-mysql','php-zip','php-gd','php-curl','php-pear','php-bcmath']
+  become: yes

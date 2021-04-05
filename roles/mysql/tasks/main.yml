@@ -1,0 +1,25 @@
+---
+# tasks file for mysql
+- name: Atualiza o cache apt do servidor
+  apt: update_cache=yes cache_valid_time=3600
+  become: yes
+
+- name: Instala MySQL
+  apt:
+    name: ['mysql-server','python3-mysqldb']
+  become: yes
+
+- name: Cria o banco de dados para o WordPress
+  mysql_db: name={{ wp_mysql_db }} state=present
+ 
+- name: Cria um usuario de banco para o WordPress
+  mysql_user:
+    name={{ wp_mysql_user }}
+    password={{ wp_mysql_password }}
+    priv=*.*:ALL
+
+#Libera acesso ao Mysql
+#- name: copia teste
+#  copy:
+#   src: /etc/ansible/wordpress_hml/roles/mysql/files/mysqld.cnf
+#   dest: /etc/mysql/mysql.conf.d/mysqld.cnf
